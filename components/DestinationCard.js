@@ -1,40 +1,58 @@
-
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function DestinationCard({ cityName, imageUrl, onPress }) {
+export default function DestinationCard({ cityName, imageSource, onPress }) {
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress}>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{cityName}</Text>
+    <TouchableOpacity style={styles.cardContainer} onPress={onPress} activeOpacity={0.9}>
+      <View style={styles.imageWrapper}>
+        <Image source={imageSource} style={styles.image} />
+
+        <View style={styles.overlay}>
+          <Text style={styles.title}>{cityName}</Text>
+          <Text style={styles.subtitle}>Tap to explore →</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  card: {
-    height: 200,
-    marginHorizontal: 16,
-    marginBottom: 16,
-    borderRadius: 12,
+  cardContainer: {
+    marginHorizontal: 20,
+    marginBottom: 25,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.15,
+    shadowRadius: 15,
+    elevation: 8, 
+  },
+  imageWrapper: {
+    height: 240,
+    borderRadius: 24,
     overflow: 'hidden',
-    backgroundColor: '#ccc',
+    backgroundColor: '#e5e7eb',
   },
   image: {
     width: '100%',
     height: '100%',
     position: 'absolute',
   },
-  textContainer: {
+  overlay: {
     flex: 1,
     justifyContent: 'flex-end',
-    padding: 16,
-    backgroundColor: 'rgba(0,0,0,0.3)', 
+    padding: 24,
+    backgroundColor: 'rgba(0,0,0,0.35)',
   },
   title: {
-    color: 'white',
-    fontSize: 24,
-    fontWeight: 'bold',
+    color: '#ffffff',
+    fontSize: 28,
+    fontWeight: '900',
+    letterSpacing: 0.5,
+    marginBottom: 4,
+  },
+  subtitle: {
+    color: 'rgba(255,255,255,0.8)',
+    fontSize: 14,
+    fontWeight: '600',
+    letterSpacing: 0.5,
   },
 });

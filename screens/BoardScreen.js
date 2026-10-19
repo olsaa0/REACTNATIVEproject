@@ -15,32 +15,28 @@ export default function BoardScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerTitle}>My Travel Board</Text>
+      <Text style={styles.headerTitle}>My Travel Board~</Text>
 
       {savedDestinations.length === 0 ? (
         <View style={styles.emptyState}>
-          <Ionicons name="bookmark-outline" size={60} color="#ccc" />
-          <Text style={styles.emptyStateText}>Your board is empty.</Text>
-          <Text style={styles.emptyStateSubtext}>Save destinations from the Discover or Search tabs.</Text>
+          <Ionicons name="cloud-offline-outline" size={80} color="#70A1FF" />
+          <Text style={styles.emptyStateText}>Your board is dreaming... 💭</Text>
+          <Text style={styles.emptyStateSubtext}>Save some beautiful places from the Discover tab!</Text>
         </View>
       ) : (
         <FlatList
           data={savedDestinations}
           keyExtractor={(item) => item.id}
-          contentContainerStyle={{ paddingBottom: 100 }}
+          contentContainerStyle={{ paddingBottom: 120 }} 
           renderItem={({ item }) => (
             <View style={styles.cardWrapper}>
               <DestinationCard 
                 cityName={item.city} 
                 imageSource={item.imageSource} 
-                onPress={() => navigation.navigate('CityDetail', { cityName: item.city })}
+                onPress={() => navigation.navigate('CityDetail', { cityName: item.city, imageSource: item.imageSource })}
               />
-
-              <TouchableOpacity 
-                style={styles.deleteButton} 
-                onPress={() => removeDestination(item.id)}
-              >
-                <Ionicons name="trash" size={20} color="#ffffff" />
+              <TouchableOpacity style={styles.deleteButton} onPress={() => removeDestination(item.id)}>
+                <Ionicons name="trash-outline" size={20} color="#ffffff" />
               </TouchableOpacity>
             </View>
           )}
@@ -51,54 +47,20 @@ export default function BoardScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f8f9fa',
-    paddingTop: 60,
-  },
-  headerTitle: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    marginHorizontal: 20,
-    color: '#1a1a1a',
-  },
-  cardWrapper: {
-    position: 'relative',
-  },
+  container: { flex: 1, backgroundColor: '#ff98cfff', paddingTop: 60 },
+  headerTitle: { fontSize: 32, fontWeight: '900', marginBottom: 24, marginHorizontal: 24, color: '#ff2093ff', letterSpacing: -0.5 },
+  cardWrapper: { position: 'relative' },
+  
+  
   deleteButton: {
-    position: 'absolute',
-    top: 15,
-    right: 30,
-    backgroundColor: 'rgba(255, 59, 48, 0.9)', // iOS Red
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
+    position: 'absolute', top: 15, right: 35, 
+    backgroundColor: '#FF6B81', 
+    width: 44, height: 44, borderRadius: 22, 
+    justifyContent: 'center', alignItems: 'center', 
+    shadowColor: '#FF6B81', shadowOffset: { width: 0, height: 6 }, shadowOpacity: 0.4, shadowRadius: 8, elevation: 6,
   },
-  emptyState: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: -100,
-  },
-  emptyStateText: {
-    marginTop: 15,
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#666',
-  },
-  emptyStateSubtext: {
-    marginTop: 8,
-    fontSize: 14,
-    color: '#999',
-    textAlign: 'center',
-    paddingHorizontal: 40,
-  },
+  
+ emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: -100 },
+  emptyStateText: { marginTop: 20, fontSize: 20, fontWeight: '800', color: '#2F3640' },
+  emptyStateSubtext: { marginTop: 10, fontSize: 15, fontWeight: '600', color: '#A4B0BE', textAlign: 'center', paddingHorizontal: 50 },
 });
