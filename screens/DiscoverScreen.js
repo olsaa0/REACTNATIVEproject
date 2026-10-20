@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   slide: { flex: 1 },
   categoryContainer: { paddingHorizontal: 20, marginBottom: 24 },
   categoryButton: { paddingHorizontal: 22, paddingVertical: 12, backgroundColor: '#ffffff', borderRadius: 30, marginHorizontal: 6, borderWidth: 1, borderColor: '#E5E7EB', shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.05, shadowRadius: 4, elevation: 2 },
-  categoryButtonActive: { backgroundColor: '#f1abb5ff', borderColor: '#FF6B81' }, // Coral active state!
+  categoryButtonActive: { backgroundColor: 'rgb(255, 142, 159)', borderColor: '#FF6B81' }, // Coral active state!
   categoryText: { fontSize: 15, fontWeight: '700', color: '#f23097ff', letterSpacing: 0.3 },
-  categoryTextActive: { color: '#f23097ff' },
+  categoryTextActive: { color: 'rgb(250, 76, 169)' },
 });

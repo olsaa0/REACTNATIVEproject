@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
   },
   
  emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: -100 },
-  emptyStateText: { marginTop: 20, fontSize: 20, fontWeight: '800', color: '#2F3640' },
+  emptyStateText: { marginTop: 20, fontSize: 20, fontWeight: '800', color: '#ff0d7e' },
   emptyStateSubtext: { marginTop: 10, fontSize: 15, fontWeight: '600', color: '#A4B0BE', textAlign: 'center', paddingHorizontal: 50 },
 });

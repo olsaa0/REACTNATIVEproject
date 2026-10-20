@@ -23,8 +23,8 @@ export default function TabNavigator() {
           }
           return <Ionicons name={iconName} size={28} color={color} />;
         },
-        tabBarActiveTintColor: '#000000',
-        tabBarInactiveTintColor: '#a3a3a3',
+        tabBarActiveTintColor: '#f5145f',
+        tabBarInactiveTintColor: '#e65b95',
         tabBarStyle: {
           position: 'absolute',
           bottom: 25,
